@@ -1,19 +1,19 @@
 import pygame
 import sys
 from settings import Settings
-
+from ship import Ship
+import functions as fg
 
 def run_game():
     pygame.init()
     settings = Settings()
-    screen = pygame.display.set_mode(settings.screen_size)
+    screen = pygame.display.set_mode((settings.screen_lengh, settings.screen_height))
+    ship = Ship(screen, settings)
     pygame.display.set_caption("test")
     while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
+        fg.check_events(ship)
+        ship.update()
         
-        screen.fill(settings.bg_color)
-        pygame.display.flip()
+        fg.update_screen(settings, screen, ship)
 
 run_game()
