@@ -3,7 +3,7 @@ import sys
 from settings import Settings
 from ship import Ship
 import functions as fg
-
+#testtttttt
 def run_game():
     pygame.init()
     settings = Settings()
