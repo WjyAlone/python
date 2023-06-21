@@ -26,6 +26,7 @@ def check_events(ship):#检测事件
 
 def update_screen(settings, screen, ship):
     #screen.fill(settings.bg_color)
+    screen.fill(settings.bg_color)
     screen.blit(bgp, (0, 0))
     ship.blitme()
     
