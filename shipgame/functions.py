@@ -1,6 +1,6 @@
 import sys
 import pygame
-
+bgp = pygame.image.load('shipgame/pictures/bg2.png')
 def check_events(ship):#检测事件
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -25,6 +25,9 @@ def check_events(ship):#检测事件
                 ship.moving_down = False
 
 def update_screen(settings, screen, ship):
-    screen.fill(settings.bg_color)
+    #screen.fill(settings.bg_color)
+    screen.blit(bgp, (0, 0))
     ship.blitme()
+    
     pygame.display.flip()
+    
