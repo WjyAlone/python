@@ -5,6 +5,6 @@ def toNient(pio, formulaK):
     for i in pio:
         result += (i[1]-formulaK * i[0])
     return result
-for i in range(10):
+for i in range(100):
     k += toNient(point, k) * 0.1
 print(k)
