@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .button{
+            
+            width: 75px;
+            height: 40px;
+        }
+        .text{
+            font-size: 20px;
+        }
+        .input{
+            font-size: 20px;
+            width: 220px;
+        }
+        .elem{
+            font-size: 25px;
+            
+        }
+        #result{
+            background-color:deeppink;
+        }
+        .submit{
+            width: 50px;
+            height: 30px;
+        }
+        #history{
+            width: 70px;
+            height: 30px;
+        }
+    </style>
+    
+</head>
+<body>
+    <form>
+        <input class="input" type="text">
+        <ul id="list">
+            <li name="val">
+                <select name="elem" class="elem" title="to">
+                    <option value="1">房间</option>
+                    <option value="2">阳台</option>
+                    <option value="3">公卫</option>
+                    <option value="4">主卫</option>
+                    <option value="5">卫生间</option>
+                    <option value="6">客厅墙</option>
+                    <option value="7">客厅地面</option>
+                    <option value="8">客厅</option>
+                    <option value="9">过道地面</option>
+                    <option value="10">过道墙</option>
+                    <option value="11">过道</option>
+                    <option value="12">其他</option>
+                </select><br>
+                <input class="input" id="math1" title="comus" type="text">
+                
+                <label class="text" for="show" id="lable1">None</label>
+                
+            </li>
+
+        </ul>
+    
+    
+    <button class="button" type="button" onclick="addBtn()">添加</button>
+    <button class="button" type="button" onclick="remove()">去除</button>
+    <button class="button" type="button" onclick="simuli()">计算</button><br>
+    <button class="submit" type="submit">保存</button>
+    <button type="button">搜索历史</button>
+    <select name="history" id="history">
+        <option value="origin">历史</option>
+    </select><br>
+    <label class="text" for="no">Result:</label>
+    <label class="text" id="result" for="result"></label>
+    </form>
+</body>
+<script>
+    var num = 1;
+    function addBtn(){
+        num +=1;
+        var list = document.getElementById("list");
+        var eleNew = "<li name='val'><select name='elem' class='elem' title='to'><option>房间</option><option>阳台</option><option>公卫</option><option>主卫</option><option>卫生间</option><option>客厅墙</option><option>客厅地面</option><option>客厅</option><option>过道地面</option><option>过道墙</option><option>过道</option><option>其他</option></select><br><input class='input' id='math"+String(num)+"' title='comus' type='text'><label for='show' class='text' id='lable"+String(num)+"'>None</label></li>";
+        list.insertAdjacentHTML("beforeend", eleNew);
+    }
+    function simuli(){
+        var sum = 0;
+        var listli = document.getElementsByName("val");
+        for(var i=0;i<listli.length;i++){
+            console.log(i);
+            sum += eval(document.getElementById("math"+String(i+1)).value);
+            document.getElementById("lable"+String(i+1)).innerText = String(eval(document.getElementById("math"+String(i+1)).value));
+        
+        }
+        document.getElementById("result").innerText = String(sum)
+    }
+    function remove(){
+        var list = document.getElementById("list");
+        list.removeChild(list.lastChild);
+    }
+</script>
+</html>
