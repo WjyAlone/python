@@ -7,11 +7,13 @@ force = 5
 step = 0.1
 a = 1
 b = 1
-x = [2, 3, 6, 8, 7, 12, 36, 55]
-y = [3, 4, 7, 9, 10 ,13, 38, 57]
-#for i in range(300):
-    #x.append(x[-1]+randint(1, 5))
-    #y.append(y[-1]+randint(1, 5))
+#x = [2, 3, 6, 8, 7, 12, 36, 55]
+#y = [3, 4, 7, 9, 10 ,13, 38, 57]
+x = [1]
+y = [2]
+for i in range(30):
+    x.append(x[-1]+randint(1, 15))
+    y.append(y[-1]+randint(1, 15))
 start = time.time()
 
 class ErrorFix:
@@ -79,9 +81,9 @@ print(lostVoid())
 print(a, b)
 end = time.time()
 print("TIME:"+str(end-start))
-#plt.plot([x[0], x[-1]], [line(x[0], a, b), line(x[-1], a, b)])
+plt.plot([x[0], x[-1]], [line(x[0], a, b), line(x[-1], a, b)])
 
-#plt.scatter(x, y)
-#plt.show()
+plt.scatter(x, y)
+plt.show()
 
 
